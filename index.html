@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바닷속 유숭이의 비밀 아지트 🌊</title>
+    <!-- Google Fonts & Canvas Confetti Library -->
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        /* Base Reset & Variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            background: linear-gradient(180deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            padding-bottom: 60px;
+        }
+
+        /* Deep Sea Background Animations */
+        .ocean-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Floating Bubbles */
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: rise 10s infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-120vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Swimming Fish */
+        .fish {
+            position: absolute;
+            font-size: 2.2rem;
+            opacity: 0.75;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            animation: swim linear infinite;
+        }
+
+        @keyframes swim {
+            0% { transform: translateX(-10vw) scaleX(1); }
+            50% { transform: translateX(110vw) scaleX(1); }
+            51% { transform: translateX(110vw) scaleX(-1); }
+            100% { transform: translateX(-10vw) scaleX(-1); }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header / Hero Section */
+        header {
+            text-align: center;
+            padding: 40px 10px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .title-badge {
+            display: inline-block;
+            background: #00d2ff;
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            color: #fff;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.1rem;
+            padding: 6px 16px;
+            border-radius: 30px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+        }
+
+        h1 {
+            font-family: 'Jua', sans-serif;
+            font-size: 2.8rem;
+            color: #e0f7fa;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            word-break: keep-all;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #b2ebf2;
+            word-break: keep-all;
+        }
+
+        /* Section Global Styling */
+        section {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        section h2 {
+            font-family: 'Jua', sans-serif;
+            font-size: 1.8rem;
+            color: #80deea;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px dashed rgba(255, 255, 255, 0.15);
+            padding-bottom: 10px;
+        }
+
+        /* Flip Cards Section */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            height: 240px;
+            cursor: pointer;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+        }
+
+        .card-container:hover .card {
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+        }
+
+        .card-front .icon {
+            font-size: 4rem;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            transition: transform 0.3s;
+        }
+
+        .card-container:hover .card-front .icon {
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+        .card-front h3 {
+            font-family: 'Jua', sans-serif;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .card-front .click-hint {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #80deea;
+            background: rgba(0,0,0,0.2);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #ffffff;
+            transform: rotateY(180deg);
+        }
+
+        .card-back h3 {
+            font-family: 'Jua', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #e0f7fa;
+        }
+
+        .card-back p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            word-break: keep-all;
+        }
+
+        /* Quiz Section */
+        .quiz-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .quiz-question {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffffff;
+            line-height: 1.4;
+            word-break: keep-all;
+        }
+
+        .quiz-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-quiz {
+            width: 100px;
+            height: 60px;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.8rem;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .btn-o {
+            background: linear-gradient(135deg, #ff512f, #dd2476);
+        }
+
+        .btn-x {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+        }
+
+        .btn-quiz:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        .btn-quiz:active {
+            transform: translateY(1px);
+        }
+
+        .quiz-feedback {
+            margin-top: 16px;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.2rem;
+            min-height: 30px;
+            transition: all 0.3s;
+        }
+
+        /* Lunch Menu Section */
+        .lunch-box {
+            text-align: center;
+        }
+
+        .lunch-display {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(128, 222, 234, 0.5);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 16px 0;
+            min-height: 110px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lunch-name {
+            font-family: 'Jua', sans-serif;
+            font-size: 2rem;
+            color: #ffe082;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .lunch-desc {
+            font-size: 0.95rem;
+            color: #e0f7fa;
+            margin-top: 6px;
+        }
+
+        .btn-action {
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            color: white;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.2rem;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
+        }
+
+        .btn-action:active {
+            transform: translateY(1px);
+        }
+
+        /* Mini Game Section */
+        .game-box {
+            text-align: center;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 16px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #b2ebf2;
+        }
+
+        .stat-value {
+            font-family: 'Jua', sans-serif;
+            font-size: 1.8rem;
+            color: #ffffff;
+        }
+
+        .btn-clicker {
+            width: 100%;
+            max-width: 280px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.4);
+            background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+            box-shadow: 0 10px 25px rgba(255, 8, 68, 0.5), inset 0 -5px 10px rgba(0,0,0,0.2);
+            color: white;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: transform 0.05s ease, box-shadow 0.1s ease;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            touch-action: manipulation;
+        }
+
+        .btn-clicker:active {
+            transform: scale(0.95);
+            box-shadow: 0 4px 15px rgba(255, 8, 68, 0.6);
+        }
+
+        .btn-clicker:disabled {
+            background: linear-gradient(135deg, #757f9a, #d7dde8);
+            box-shadow: none;
+            cursor: not-allowed;
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .btn-reset {
+            margin-top: 16px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-family: 'Jua', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-reset:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: #80deea;
+            opacity: 0.8;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 0.95rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .card-container { height: 200px; }
+            section { padding: 18px; }
+            .btn-clicker { width: 180px; height: 180px; font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Deep Sea Background Visuals -->
+    <div class="ocean-bg" id="oceanBg"></div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <span class="title-badge">🐟 바닷속에 사는 숭어?!</span>
+            <h1>안녕하세요! 유숭이입니다 🌊</h1>
+            <p class="subtitle">깊은 바닷속을 헤엄치며 자유롭게 살아가는 유숭이의 아지트에 오신 것을 환영합니다!</p>
+        </header>
+
+        <!-- Like Section (3 Flip Cards) -->
+        <section>
+            <h2>💖 유숭이가 좋아하는 3가지 (터치해서 확인!)</h2>
+            <div class="cards-grid">
+                
+                <!-- Card 1: Basketball -->
+                <div class="card-container" onclick="flipCard(this)">
+                    <div class="card">
+                        <div class="card-face card-front">
+                            <div class="icon">🏀</div>
+                            <h3>농구</h3>
+                            <span class="click-hint">클릭해서 뒤집기 🔄</span>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>🏀 농구를 좋아하는 이유</h3>
+                            <p>물속에서도 슈팅 각도를 계산하는 천재 숭이! 3점 슛을 쏠 때 바람을 가르는 통쾌함이 제일 좋아!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Gaming -->
+                <div class="card-container" onclick="flipCard(this)">
+                    <div class="card">
+                        <div class="card-face card-front">
+                            <div class="icon">🎮</div>
+                            <h3>게임</h3>
+                            <span class="click-hint">클릭해서 뒤집기 🔄</span>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>🎮 게임을 좋아하는 이유</h3>
+                            <p>현실 세계보다 유숭이 아지트가 더 재미있는 법! 화려한 컨트롤로 랭킹 1위 찍을 때가 제일 신남!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Sleep -->
+                <div class="card-container" onclick="flipCard(this)">
+                    <div class="card">
+                        <div class="card-face card-front">
+                            <div class="icon">😴</div>
+                            <h3>잠</h3>
+                            <span class="click-hint">클릭해서 뒤집기 🔄</span>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>😴 잠을 좋아하는 이유</h3>
+                            <p>해초 침대에 누워서 파도 소리를 자장가 삼아 잘 때가 세상에서 가장 행복해... 12시간 완충 필수!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section>
+            <h2>🧠 진실 혹은 거짓! OX 퀴즈</h2>
+            <div class="quiz-box">
+                <div class="quiz-question">Q. "나는 홍균쌤을 싫어한다."</div>
+                <div class="quiz-options">
+                    <button class="btn-quiz btn-o" onclick="checkQuiz('O')">O</button>
+                    <button class="btn-quiz btn-x" onclick="checkQuiz('X')">X</button>
+                </div>
+                <div class="quiz-feedback" id="quizFeedback"></div>
+            </div>
+        </section>
+
+        <!-- Random Lunch Menu Section -->
+        <section>
+            <h2>🍴 오늘의 점심 메뉴 추천</h2>
+            <div class="lunch-box">
+                <div class="lunch-display">
+                    <div class="lunch-name" id="lunchName">❓ 무엇을 먹을까요?</div>
+                    <div class="lunch-desc" id="lunchDesc">아래 버튼을 눌러 점심 메뉴를 렌덤으로 뽑아보세요!</div>
+                </div>
+                <button class="btn-action" onclick="recommendLunch()">
+                    <span>🎲 점심 메뉴 추천받기</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Mini Game Section -->
+        <section>
+            <h2>⚡ 10초 광클 미니게임</h2>
+            <div class="game-box">
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">남은 시간</span>
+                        <span class="stat-value" id="timer">10.0초</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">클릭 횟수</span>
+                        <span class="stat-value" id="score">0회</span>
+                    </div>
+                </div>
+                <button class="btn-clicker" id="clickBtn" onclick="handleClick()">
+                    <span id="clickBtnText">눌러서 시작!</span>
+                </button>
+                <div>
+                    <button class="btn-reset" onclick="resetGame()">🔄 다시 도전하기</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 유숭이(Yusung-i)의 바닷속 아지트 | All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Core Logic -->
+    <script>
+        /* 1. Ocean Animation Setup (Bubbles & Fish) */
+        function initOcean() {
+            const ocean = document.getElementById('oceanBg');
+            
+            // Create Bubbles
+            for (let i = 0; i < 20; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const size = Math.random() * 30 + 10;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.animationDuration = `${Math.random() * 8 + 6}s`;
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                ocean.appendChild(bubble);
+            }
+
+            // Create Swimming Fish Emojis
+            const fishEmojis = ['🐠', '🐟', '🐡', '🦈', '🐙', '🦑', '🦭'];
+            for (let i = 0; i < 6; i++) {
+                const fish = document.createElement('div');
+                fish.className = 'fish';
+                fish.innerText = fishEmojis[i % fishEmojis.length];
+                fish.style.top = `${Math.random() * 80 + 10}%`;
+                fish.style.animationDuration = `${Math.random() * 12 + 12}s`;
+                fish.style.animationDelay = `${Math.random() * 10}s`;
+                ocean.appendChild(fish);
+            }
+        }
+
+        /* 2. Card Flip Logic */
+        function flipCard(cardContainer) {
+            const card = cardContainer.querySelector('.card');
+            card.classList.toggle('flipped');
+        }
+
+        /* 3. OX Quiz Logic */
+        function checkQuiz(userAnswer) {
+            const feedback = document.getElementById('quizFeedback');
+            if (userAnswer === 'X') {
+                feedback.style.color = '#38ef7d';
+                feedback.innerText = '🎉 정답입니다! 유숭이는 홍균쌤을 엄청 좋아한다구요! 💙';
+                
+                // Fire Confetti Effect
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 80,
+                        spread: 70,
+                        origin: { y: 0.6 }
+                    });
+                }
+            } else {
+                feedback.style.color = '#ff4b2b';
+                feedback.innerText = '😭 땡! 거짓말이에요! 유숭이는 홍균쌤 최고 팬입니다!';
+            }
+        }
+
+        /* 4. Lunch Recommendation System (12 Menus) */
+        const lunchMenuList = [
+            { name: "🍕 바삭 촉촉 피자", desc: "고소한 치즈가 쫙쫙 늘어나는 인생 피자!" },
+            { name: "🍔 둠칫 두둠칫 수제버거", desc: "육즙 가득한 패티와 신선한 야채의 환상 조합!" },
+            { name: "🍜 얼큰한 해물 라면", desc: "바닷속 유숭이도 울고 갈 깊은 국물의 맛!" },
+            { name: "🍱 연어 덮밥 (사케동)", desc: "부드러운 연어와 와사비의 깔끔한 한 숟가락!" },
+            { name: "떡볶이 & 튀김 🍤", desc: "매콤달콤 떡볶이에 바삭한 모듬 튀김 푹 찍어 먹기!" },
+            { name: "🥩 겉바속촉 돈가스", desc: "바삭바삭한 튀김옷 속 도톰하고 부드러운 고기!" },
+            { name: "🍝 고소한 크림 파스타", desc: "꾸덕하고 부드러운 크림 소스 풍미 뿜뿜!" },
+            { name: "🍲 따뜻한 국밥 한 그릇", desc: "속이 뜨끈뜨끈해지는 든든한 한국인의 밥상!" },
+            { name: "🥟 겉바속촉 군만두 & 쫄면", desc: "새콤달콤한 쫄면과 만두의 영혼의 단짝 콤보!" },
+            { name: "🍛 치킨 가라아게 카레", desc: "진한 카레 위에 바삭한 치킨이 올라간 별미!" },
+            { name: "🌮 매콤 타코 & 퀘사디아", desc: "멕시칸 풍미가 가득 터지는 이색 점심!" },
+            { name: "🥪 에그 클럽 샌드위치", desc: "신선하고 가볍지만 알차고 폭신한 샌드위치!" }
+        ];
+
+        function recommendLunch() {
+            const nameEl = document.getElementById('lunchName');
+            const descEl = document.getElementById('lunchDesc');
+            
+            // Fast Slot Machine Animation Effect
+            let count = 0;
+            const interval = setInterval(() => {
+                const randomTemp = lunchMenuList[Math.floor(Math.random() * lunchMenuList.length)];
+                nameEl.innerText = randomTemp.name;
+                descEl.innerText = "메뉴 결정 중...";
+                count++;
+                
+                if (count > 10) {
+                    clearInterval(interval);
+                    const finalChoice = lunchMenuList[Math.floor(Math.random() * lunchMenuList.length)];
+                    nameEl.innerText = finalChoice.name;
+                    descEl.innerText = finalChoice.desc;
+                }
+            }, 50);
+        }
+
+        /* 5. 10-Second Clicker Mini Game Logic */
+        let gameTime = 10.0;
+        let score = 0;
+        let isPlaying = false;
+        let gameTimerId = null;
+
+        const timerEl = document.getElementById('timer');
+        const scoreEl = document.getElementById('score');
+        const clickBtn = document.getElementById('clickBtn');
+        const clickBtnText = document.getElementById('clickBtnText');
+
+        function handleClick() {
+            if (!isPlaying && gameTime === 10.0) {
+                // Start Game
+                isPlaying = true;
+                score = 1;
+                scoreEl.innerText = `${score}회`;
+                clickBtnText.innerText = '광클하기!! 💥';
+                
+                let startTime = Date.now();
+                gameTimerId = setInterval(() => {
+                    let elapsed = (Date.now() - startTime) / 1000;
+                    let remaining = (10.0 - elapsed).toFixed(1);
+
+                    if (remaining <= 0) {
+                        finishGame();
+                    } else {
+                        timerEl.innerText = `${remaining}초`;
+                    }
+                }, 100);
+
+            } else if (isPlaying) {
+                score++;
+                scoreEl.innerText = `${score}회`;
+            }
+        }
+
+        function finishGame() {
+            isPlaying = false;
+            clearInterval(gameTimerId);
+            timerEl.innerText = '0.0초';
+            clickBtn.disabled = true;
+            
+            let evaluation = "";
+            if (score >= 80) evaluation = "🔥 신의 손가락! 광클 마스터!";
+            else if (score >= 50) evaluation = "⚡ 엄청난 손가락 스피드!";
+            else if (score >= 30) evaluation = "👍 참 잘했어요!";
+            else evaluation = "🐢 조금 더 연습해 볼까요?";
+
+            clickBtnText.innerText = `게임 종료!`;
+            alert(`🎉 10초 동안 총 ${score}번 눌렀습니다!\n${evaluation}`);
+        }
+
+        function resetGame() {
+            clearInterval(gameTimerId);
+            isPlaying = false;
+            gameTime = 10.0;
+            score = 0;
+            timerEl.innerText = '10.0초';
+            scoreEl.innerText = '0회';
+            clickBtn.disabled = false;
+            clickBtnText.innerText = '눌러서 시작!';
+        }
+
+        /* Initialize Page on Load */
+        window.onload = function() {
+            initOcean();
+        };
+    </script>
+</body>
+</html>
