@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
+<html lang="ko"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>바닷속 유숭이의 비밀 아지트 🌊</title>
     <!-- Google Fonts & Canvas Confetti Library -->
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&amp;family=Nanum+Gothic:wght@400;700;800&amp;display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         /* Base Reset & Variables */
@@ -463,8 +462,109 @@
             .btn-clicker { width: 180px; height: 180px; font-size: 1.4rem; }
         }
     </style>
-</head>
+<style data-studio="css">
+:root{--st-accent:#e2557a}
+.st-nav{position:sticky;top:0;z-index:50;width:100%;box-sizing:border-box;background:#fff;background:rgba(255,255,255,.93);backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,.08)}
+.st-nav-in{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px 12px;max-width:960px;margin:0 auto}
+.st-nav-a{display:inline-block;padding:8px 14px;border-radius:999px;text-decoration:none;color:#333;font-weight:700;font-size:15px;line-height:1.2}
+.st-nav-a:hover{background:rgba(0,0,0,.06)}
+.st-nav-a.is-on{background:var(--st-accent);color:#fff}
+.st-sec{box-sizing:border-box;width:100%;max-width:960px;margin:24px auto;padding:20px}
+.st-h{font-size:1.6rem;font-weight:800;line-height:1.3;margin:0 0 12px}
+.st-p{font-size:1rem;line-height:1.75;margin:0 0 12px}
+.st-btn{display:inline-block;padding:12px 22px;border-radius:12px;background:var(--st-accent);color:#fff!important;text-decoration:none;font-weight:700;font-size:1rem;line-height:1.2;border:0;cursor:pointer;margin:4px}
+.st-btn:hover{filter:brightness(1.08)}
+.st-img{margin:16px auto;text-align:center}
+.st-img img{display:inline-block;width:100%;max-width:100%;height:auto;border-radius:12px}
+.st-hero{text-align:center;padding:48px 20px;border-radius:20px;background:#f6f6f6;background:color-mix(in srgb,var(--st-accent) 12%,#fff)}
+.st-hero .st-h{font-size:2rem}
+.st-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.st-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.05);text-align:left}
+.st-ico{font-size:2rem;line-height:1;margin:0 0 8px}
+.st-card .st-h{font-size:1.15rem;margin:0 0 6px}
+.st-card .st-p{margin:0;font-size:.95rem}
+.st-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px;align-items:center}
+@media(max-width:600px){.st-split{grid-template-columns:1fr}}
+.st-split img{display:block;width:100%;height:auto;border-radius:16px}
+.st-list{margin:0;padding-left:1.3em;line-height:1.9}
+.st-hr{border:0;border-top:2px dashed rgba(0,0,0,.15);margin:28px auto;max-width:960px}
+.st-foot{text-align:center;font-size:.875rem;opacity:.7;padding:24px 12px}
+.st-tab-bar{display:flex;gap:4px;flex-wrap:wrap;border-bottom:2px solid rgba(0,0,0,.08);margin-bottom:14px}
+.st-tab{border:0;background:none;padding:10px 14px;font:inherit;font-weight:700;color:inherit;opacity:.6;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+.st-tab.is-on{opacity:1;color:var(--st-accent);border-bottom-color:var(--st-accent)}
+.st-acc{border:1px solid rgba(0,0,0,.1);border-radius:12px;margin:8px 0;background:#fff;overflow:hidden;text-align:left}
+.st-acc summary{cursor:pointer;padding:14px 44px 14px 16px;font-weight:700;list-style:none;position:relative}
+.st-acc summary::-webkit-details-marker{display:none}
+.st-acc summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:1.3em;color:var(--st-accent)}
+.st-acc[open] summary::after{content:"\2212"}
+.st-acc>.st-p{padding:0 16px 14px;margin:0}
+.st-pop{margin:12px 0;text-align:center}
+.st-modal{border:0;border-radius:18px;padding:24px;width:min(480px,90vw);box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:left;color:#222}
+.st-modal::backdrop{background:rgba(0,0,0,.45)}
+.st-slider{position:relative}
+.st-slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:16px}
+.st-slides::-webkit-scrollbar{display:none}
+.st-slide{flex:0 0 100%;scroll-snap-align:start;margin:0}
+.st-slide img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:16px}
+.st-slide figcaption{text-align:center;padding:8px;font-size:.95rem}
+.st-prev,.st-next{position:absolute;top:calc(50% - 40px);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);box-shadow:0 2px 8px rgba(0,0,0,.2);font-size:24px;line-height:1;cursor:pointer;color:#333}
+.st-prev{left:10px}.st-next{right:10px}
+.st-dots{display:flex;justify-content:center;gap:8px;margin-top:4px}
+.st-dots button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(0,0,0,.2);padding:0;cursor:pointer}
+.st-dots button.is-on{background:var(--st-accent)}
+.st-quiz{text-align:center}
+.st-q{font-size:1.25rem;font-weight:800;margin:0 0 14px}
+.st-opts{display:grid;gap:8px;max-width:420px;margin:0 auto}
+.st-opt{padding:12px 16px;border-radius:12px;border:2px solid rgba(0,0,0,.12);background:#fff;font:inherit;font-weight:700;cursor:pointer;color:#222}
+.st-opt.is-ok{border-color:#2f9e5b;background:#e9f7ef}.st-opt.is-no{border-color:#d9475a;background:#fdecee}
+.st-qr{min-height:1.6em;font-weight:700;margin:12px 0 0}
+.st-ci{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid rgba(0,0,0,.08);border-radius:10px;margin:6px 0;background:#fff;cursor:pointer;text-align:left;color:#222}
+.st-ci input{width:20px;height:20px;flex:none;accent-color:var(--st-accent)}
+.st-bar{height:10px;border-radius:99px;background:rgba(0,0,0,.08);overflow:hidden;margin-top:12px}
+.st-bar i{display:block;height:100%;width:0;background:var(--st-accent);transition:width .3s}
+.st-cnt{font-size:.9rem;opacity:.75;margin:6px 0 0}
+.st-dday,.st-timer{text-align:center;border-radius:20px;background:#f6f6f6;background:color-mix(in srgb,var(--st-accent) 10%,#fff)}
+.st-dlabel,.st-tlabel{margin:0;font-weight:700;opacity:.8}
+.st-dnum,.st-tnum{margin:4px 0 8px;font-size:3rem;font-weight:900;color:var(--st-accent);font-variant-numeric:tabular-nums;line-height:1.2}
+.st-tnum.is-done{animation:stblink 1s 3}@keyframes stblink{50%{opacity:.2}}
+.st-embed iframe{display:block;width:100%;aspect-ratio:16/9;height:auto;border:0;border-radius:14px}
+.st-embed[data-kind=map] iframe{aspect-ratio:4/3}
+.st-cols{display:grid;gap:16px}
+.st-c2{grid-template-columns:repeat(2,minmax(0,1fr))}.st-c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:600px){.st-c2,.st-c3{grid-template-columns:1fr}}
+.st-col{min-width:0}
+.st-swipe{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px;-webkit-overflow-scrolling:touch}
+.st-swipe>*{flex:0 0 min(72%,240px);box-sizing:border-box;scroll-snap-align:start}
+.st-nav-i{margin-right:5px}
+@media(max-width:600px){.st-nav-tab{position:fixed;top:auto;bottom:0;left:0;border-bottom:0;border-top:1px solid rgba(0,0,0,.1);padding-bottom:env(safe-area-inset-bottom)}.st-nav-tab .st-nav-in{flex-wrap:nowrap;justify-content:space-around;gap:0;padding:4px}.st-nav-tab .st-nav-a{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;font-size:12px;border-radius:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.st-nav-tab .st-nav-a.is-on{background:none;color:var(--st-accent)}.st-nav-tab .st-nav-i{margin:0;font-size:22px;line-height:1.1}}
+.st-g-point{--st-g:linear-gradient(135deg,rgba(255,255,255,0),rgba(255,255,255,.45)),linear-gradient(var(--st-accent),var(--st-accent));--st-gi:#fff}.st-g-sunset{--st-g:linear-gradient(135deg,#f43f5e,#f97316);--st-gi:#fff}.st-g-ocean{--st-g:linear-gradient(135deg,#2563eb,#06b6d4);--st-gi:#fff}.st-g-grape{--st-g:linear-gradient(135deg,#7c3aed,#ec4899);--st-gi:#fff}.st-g-forest{--st-g:linear-gradient(135deg,#047857,#34d399);--st-gi:#fff}.st-g-night{--st-g:linear-gradient(135deg,#0f172a,#475569);--st-gi:#fff}.st-g-peach{--st-g:linear-gradient(135deg,#ffe4e6,#fef3c7);--st-gi:#222}.st-g-mint{--st-g:linear-gradient(135deg,#d1fae5,#dbeafe);--st-gi:#222}.st-g-lav{--st-g:linear-gradient(135deg,#ede9fe,#fce7f3);--st-gi:#222}
+html body [class*="st-g-"]{background-image:var(--st-g);color:var(--st-gi)}
+html body .st-gtx{color:transparent;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.st-hv-lift,.st-hv-grow,.st-hv-glow,.st-hv-press{transition:translate .2s,scale .2s,box-shadow .2s}
+@media(hover:hover){.st-hv-lift:hover{translate:0 -6px;box-shadow:0 14px 28px rgba(0,0,0,.18)}.st-hv-grow:hover{scale:1.04}.st-hv-glow:hover{box-shadow:0 8px 24px rgba(0,0,0,.25);box-shadow:0 0 0 3px color-mix(in srgb,var(--st-accent) 35%,transparent),0 8px 24px color-mix(in srgb,var(--st-accent) 45%,transparent)}}
+.st-hv-press:active{scale:.95}
+html.st-js [data-st-in]{opacity:0;transition:opacity .6s ease,transform .6s ease,translate .2s,scale .2s,box-shadow .2s}
+html.st-js [data-st-in="up"]{transform:translateY(26px)}html.st-js [data-st-in="zoom"]{transform:scale(.9)}html.st-js [data-st-in="left"]{transform:translateX(-30px)}
+html.st-js [data-st-in].is-in{opacity:1;transform:none}
+html.st-editing [data-st-in]{opacity:1!important;transform:none!important}
+.st-editing .st-swipe{flex-wrap:wrap;overflow:visible}
+html.st-dark{filter:invert(1) hue-rotate(180deg);background:#fff}
+html.st-dark img,html.st-dark video,html.st-dark iframe,html.st-dark canvas{filter:invert(1) hue-rotate(180deg)}
+.st-editing .st-tab-panel{display:block!important;outline:2px dashed rgba(0,0,0,.18);outline-offset:4px;margin:12px 0}
+.st-editing .st-slides{flex-wrap:wrap;gap:10px;overflow:visible}
+.st-editing .st-prev,.st-editing .st-next{display:none}
+.st-editing dialog.st-modal{display:block;position:static;margin:12px auto;outline:2px dashed rgba(0,0,0,.25)}
+.st-editing .st-embed iframe{pointer-events:none}
+</style></head>
 <body>
+<nav class="st-nav" data-studio="nav">
+  <div class="st-nav-in">
+    <a class="st-nav-a is-on" href="index.html">홈</a>
+    <a class="st-nav-a" href="about.html">나를 소개한다</a>
+    <a class="st-nav-a" href="dreams.html">나의 꿈 소개</a>
+  </div>
+</nav>
+
 
     <!-- Deep Sea Background Visuals -->
     <div class="ocean-bg" id="oceanBg"></div>
@@ -478,284 +578,9 @@
         </header>
 
         <!-- Like Section (3 Flip Cards) -->
-        <section>
-            <h2>💖 유숭이가 좋아하는 3가지 (터치해서 확인!)</h2>
-            <div class="cards-grid">
-                
-                <!-- Card 1: Basketball -->
-                <div class="card-container" onclick="flipCard(this)">
-                    <div class="card">
-                        <div class="card-face card-front">
-                            <div class="icon">🏀</div>
-                            <h3>농구</h3>
-                            <span class="click-hint">클릭해서 뒤집기 🔄</span>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>🏀 농구를 좋아하는 이유</h3>
-                            <p>물속에서도 슈팅 각도를 계산하는 천재 숭이! 3점 슛을 쏠 때 바람을 가르는 통쾌함이 제일 좋아!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2: Gaming -->
-                <div class="card-container" onclick="flipCard(this)">
-                    <div class="card">
-                        <div class="card-face card-front">
-                            <div class="icon">🎮</div>
-                            <h3>게임</h3>
-                            <span class="click-hint">클릭해서 뒤집기 🔄</span>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>🎮 게임을 좋아하는 이유</h3>
-                            <p>현실 세계보다 유숭이 아지트가 더 재미있는 법! 화려한 컨트롤로 랭킹 1위 찍을 때가 제일 신남!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: Sleep -->
-                <div class="card-container" onclick="flipCard(this)">
-                    <div class="card">
-                        <div class="card-face card-front">
-                            <div class="icon">😴</div>
-                            <h3>잠</h3>
-                            <span class="click-hint">클릭해서 뒤집기 🔄</span>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>😴 잠을 좋아하는 이유</h3>
-                            <p>해초 침대에 누워서 파도 소리를 자장가 삼아 잘 때가 세상에서 가장 행복해... 12시간 완충 필수!</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Quiz Section -->
-        <section>
-            <h2>🧠 진실 혹은 거짓! OX 퀴즈</h2>
-            <div class="quiz-box">
-                <div class="quiz-question">Q. "나는 홍균쌤을 싫어한다."</div>
-                <div class="quiz-options">
-                    <button class="btn-quiz btn-o" onclick="checkQuiz('O')">O</button>
-                    <button class="btn-quiz btn-x" onclick="checkQuiz('X')">X</button>
-                </div>
-                <div class="quiz-feedback" id="quizFeedback"></div>
-            </div>
-        </section>
-
-        <!-- Random Lunch Menu Section -->
-        <section>
-            <h2>🍴 오늘의 점심 메뉴 추천</h2>
-            <div class="lunch-box">
-                <div class="lunch-display">
-                    <div class="lunch-name" id="lunchName">❓ 무엇을 먹을까요?</div>
-                    <div class="lunch-desc" id="lunchDesc">아래 버튼을 눌러 점심 메뉴를 렌덤으로 뽑아보세요!</div>
-                </div>
-                <button class="btn-action" onclick="recommendLunch()">
-                    <span>🎲 점심 메뉴 추천받기</span>
-                </button>
-            </div>
-        </section>
-
-        <!-- Mini Game Section -->
-        <section>
-            <h2>⚡ 10초 광클 미니게임</h2>
-            <div class="game-box">
-                <div class="game-stats">
-                    <div class="stat-item">
-                        <span class="stat-label">남은 시간</span>
-                        <span class="stat-value" id="timer">10.0초</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">클릭 횟수</span>
-                        <span class="stat-value" id="score">0회</span>
-                    </div>
-                </div>
-                <button class="btn-clicker" id="clickBtn" onclick="handleClick()">
-                    <span id="clickBtnText">눌러서 시작!</span>
-                </button>
-                <div>
-                    <button class="btn-reset" onclick="resetGame()">🔄 다시 도전하기</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>© 2026 유숭이(Yusung-i)의 바닷속 아지트 | All rights reserved.</p>
-        </footer>
-    </div>
-
-    <!-- JavaScript Core Logic -->
-    <script>
-        /* 1. Ocean Animation Setup (Bubbles & Fish) */
-        function initOcean() {
-            const ocean = document.getElementById('oceanBg');
-            
-            // Create Bubbles
-            for (let i = 0; i < 20; i++) {
-                const bubble = document.createElement('div');
-                bubble.className = 'bubble';
-                const size = Math.random() * 30 + 10;
-                bubble.style.width = `${size}px`;
-                bubble.style.height = `${size}px`;
-                bubble.style.left = `${Math.random() * 100}%`;
-                bubble.style.animationDuration = `${Math.random() * 8 + 6}s`;
-                bubble.style.animationDelay = `${Math.random() * 5}s`;
-                ocean.appendChild(bubble);
-            }
-
-            // Create Swimming Fish Emojis
-            const fishEmojis = ['🐠', '🐟', '🐡', '🦈', '🐙', '🦑', '🦭'];
-            for (let i = 0; i < 6; i++) {
-                const fish = document.createElement('div');
-                fish.className = 'fish';
-                fish.innerText = fishEmojis[i % fishEmojis.length];
-                fish.style.top = `${Math.random() * 80 + 10}%`;
-                fish.style.animationDuration = `${Math.random() * 12 + 12}s`;
-                fish.style.animationDelay = `${Math.random() * 10}s`;
-                ocean.appendChild(fish);
-            }
-        }
-
-        /* 2. Card Flip Logic */
-        function flipCard(cardContainer) {
-            const card = cardContainer.querySelector('.card');
-            card.classList.toggle('flipped');
-        }
-
-        /* 3. OX Quiz Logic */
-        function checkQuiz(userAnswer) {
-            const feedback = document.getElementById('quizFeedback');
-            if (userAnswer === 'X') {
-                feedback.style.color = '#38ef7d';
-                feedback.innerText = '🎉 정답입니다! 유숭이는 홍균쌤을 엄청 좋아한다구요! 💙';
-                
-                // Fire Confetti Effect
-                if (typeof confetti === 'function') {
-                    confetti({
-                        particleCount: 80,
-                        spread: 70,
-                        origin: { y: 0.6 }
-                    });
-                }
-            } else {
-                feedback.style.color = '#ff4b2b';
-                feedback.innerText = '😭 땡! 거짓말이에요! 유숭이는 홍균쌤 최고 팬입니다!';
-            }
-        }
-
-        /* 4. Lunch Recommendation System (12 Menus) */
-        const lunchMenuList = [
-            { name: "🍕 바삭 촉촉 피자", desc: "고소한 치즈가 쫙쫙 늘어나는 인생 피자!" },
-            { name: "🍔 둠칫 두둠칫 수제버거", desc: "육즙 가득한 패티와 신선한 야채의 환상 조합!" },
-            { name: "🍜 얼큰한 해물 라면", desc: "바닷속 유숭이도 울고 갈 깊은 국물의 맛!" },
-            { name: "🍱 연어 덮밥 (사케동)", desc: "부드러운 연어와 와사비의 깔끔한 한 숟가락!" },
-            { name: "떡볶이 & 튀김 🍤", desc: "매콤달콤 떡볶이에 바삭한 모듬 튀김 푹 찍어 먹기!" },
-            { name: "🥩 겉바속촉 돈가스", desc: "바삭바삭한 튀김옷 속 도톰하고 부드러운 고기!" },
-            { name: "🍝 고소한 크림 파스타", desc: "꾸덕하고 부드러운 크림 소스 풍미 뿜뿜!" },
-            { name: "🍲 따뜻한 국밥 한 그릇", desc: "속이 뜨끈뜨끈해지는 든든한 한국인의 밥상!" },
-            { name: "🥟 겉바속촉 군만두 & 쫄면", desc: "새콤달콤한 쫄면과 만두의 영혼의 단짝 콤보!" },
-            { name: "🍛 치킨 가라아게 카레", desc: "진한 카레 위에 바삭한 치킨이 올라간 별미!" },
-            { name: "🌮 매콤 타코 & 퀘사디아", desc: "멕시칸 풍미가 가득 터지는 이색 점심!" },
-            { name: "🥪 에그 클럽 샌드위치", desc: "신선하고 가볍지만 알차고 폭신한 샌드위치!" }
-        ];
-
-        function recommendLunch() {
-            const nameEl = document.getElementById('lunchName');
-            const descEl = document.getElementById('lunchDesc');
-            
-            // Fast Slot Machine Animation Effect
-            let count = 0;
-            const interval = setInterval(() => {
-                const randomTemp = lunchMenuList[Math.floor(Math.random() * lunchMenuList.length)];
-                nameEl.innerText = randomTemp.name;
-                descEl.innerText = "메뉴 결정 중...";
-                count++;
-                
-                if (count > 10) {
-                    clearInterval(interval);
-                    const finalChoice = lunchMenuList[Math.floor(Math.random() * lunchMenuList.length)];
-                    nameEl.innerText = finalChoice.name;
-                    descEl.innerText = finalChoice.desc;
-                }
-            }, 50);
-        }
-
-        /* 5. 10-Second Clicker Mini Game Logic */
-        let gameTime = 10.0;
-        let score = 0;
-        let isPlaying = false;
-        let gameTimerId = null;
-
-        const timerEl = document.getElementById('timer');
-        const scoreEl = document.getElementById('score');
-        const clickBtn = document.getElementById('clickBtn');
-        const clickBtnText = document.getElementById('clickBtnText');
-
-        function handleClick() {
-            if (!isPlaying && gameTime === 10.0) {
-                // Start Game
-                isPlaying = true;
-                score = 1;
-                scoreEl.innerText = `${score}회`;
-                clickBtnText.innerText = '광클하기!! 💥';
-                
-                let startTime = Date.now();
-                gameTimerId = setInterval(() => {
-                    let elapsed = (Date.now() - startTime) / 1000;
-                    let remaining = (10.0 - elapsed).toFixed(1);
-
-                    if (remaining <= 0) {
-                        finishGame();
-                    } else {
-                        timerEl.innerText = `${remaining}초`;
-                    }
-                }, 100);
-
-            } else if (isPlaying) {
-                score++;
-                scoreEl.innerText = `${score}회`;
-            }
-        }
-
-        function finishGame() {
-            isPlaying = false;
-            clearInterval(gameTimerId);
-            timerEl.innerText = '0.0초';
-            clickBtn.disabled = true;
-            
-            let evaluation = "";
-            if (score >= 80) evaluation = "🔥 신의 손가락! 광클 마스터!";
-            else if (score >= 50) evaluation = "⚡ 엄청난 손가락 스피드!";
-            else if (score >= 30) evaluation = "👍 참 잘했어요!";
-            else evaluation = "🐢 조금 더 연습해 볼까요?";
-
-            clickBtnText.innerText = `게임 종료!`;
-            alert(`🎉 10초 동안 총 ${score}번 눌렀습니다!\n${evaluation}`);
-        }
-
-        function resetGame() {
-            clearInterval(gameTimerId);
-            isPlaying = false;
-            gameTime = 10.0;
-            score = 0;
-            timerEl.innerText = '10.0초';
-            scoreEl.innerText = '0회';
-            clickBtn.disabled = false;
-            clickBtnText.innerText = '눌러서 시작!';
-        }
-
-        /* Initialize Page on Load */
-        window.onload = function() {
-            initOcean();
-        };
-    </script>
-<!-- ▼ 방명록·OX 투표 (4차시) ▼ -->
-<sb-widget id="sb-web" style="display:block;width:100%;max-width:640px;margin:32px auto;flex:1 1 100%;grid-column:1/-1;align-self:stretch;box-sizing:border-box"></sb-widget>
-<script>
+        <!-- ▼ 방명록·OX 투표 (4차시) ▼ --><sb-widget id="sb-web" style="display:block;width:100%;max-width:640px;margin:32px auto;flex:1 1 100%;grid-column:1/-1;align-self:stretch;box-sizing:border-box"></sb-widget><script>
 (function () {
-  var C = {"id":"sb-web","url":"https://script.google.com/macros/s/AKfycbzVhdjyVmSgEYKplE4dtP_3M7latSn15zC3hDIYf3RZkYC0KNPtGz_x0AmLhx1ydHrDKw/exec","q":"나는 홍균쌤을 싫어한다","title":"홍균 팬클럽","sel":"body > div:nth-child(2) > section:nth-child(2)","pos":"before"};
+  var C = {"id":"sb-web","url":"https://script.google.com/macros/s/AKfycbzVhdjyVmSgEYKplE4dtP_3M7latSn15zC3hDIYf3RZkYC0KNPtGz_x0AmLhx1ydHrDKw/exec","q":"나는 홍균쌤을 싫어한다","title":"홍균 팬클럽","sel":"","pos":"before"};
   var host = document.getElementById(C.id);
   if (!host || host.sbReady) return;
   host.sbReady = true;
@@ -1073,7 +898,277 @@
   }
 })();
 
-</script>
-<!-- ▲ 방명록·OX 투표 끝 ▲ -->
-</body>
-</html>
+</script><!-- ▲ 방명록·OX 투표 끝 ▲ --><section>
+            <h2>💖 유숭이가 좋아하는 3가지 (터치해서 확인!)</h2>
+            <div class="cards-grid">
+                
+                <!-- Card 1: Basketball -->
+                <div class="card-container" onclick="flipCard(this)">
+                    <div class="card">
+                        <div class="card-face card-front">
+                            <div class="icon">🏀</div>
+                            <h3>농구</h3>
+                            <span class="click-hint">클릭해서 뒤집기 🔄</span>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>🏀 농구를 좋아하는 이유</h3>
+                            <p>물속에서도 슈팅 각도를 계산하는 천재 숭이! 3점 슛을 쏠 때 바람을 가르는 통쾌함이 제일 좋아!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Gaming -->
+                <div class="card-container" onclick="flipCard(this)">
+                    <div class="card">
+                        <div class="card-face card-front">
+                            <div class="icon">🎮</div>
+                            <h3>게임</h3>
+                            <span class="click-hint">클릭해서 뒤집기 🔄</span>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>🎮 게임을 좋아하는 이유</h3>
+                            <p>현실 세계보다 유숭이 아지트가 더 재미있는 법! 화려한 컨트롤로 랭킹 1위 찍을 때가 제일 신남!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Sleep -->
+                <div class="card-container" onclick="flipCard(this)">
+                    <div class="card">
+                        <div class="card-face card-front">
+                            <div class="icon">😴</div>
+                            <h3>잠</h3>
+                            <span class="click-hint">클릭해서 뒤집기 🔄</span>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>😴 잠을 좋아하는 이유</h3>
+                            <p>해초 침대에 누워서 파도 소리를 자장가 삼아 잘 때가 세상에서 가장 행복해... 12시간 완충 필수!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section>
+            <h2>🧠 진실 혹은 거짓! OX 퀴즈</h2>
+            <div class="quiz-box">
+                <div class="quiz-question">Q. "나는 홍균쌤을 싫어한다."</div>
+                <div class="quiz-options">
+                    <button class="btn-quiz btn-o" onclick="checkQuiz('O')">O</button>
+                    <button class="btn-quiz btn-x" onclick="checkQuiz('X')">X</button>
+                </div>
+                <div class="quiz-feedback" id="quizFeedback"></div>
+            </div>
+        </section>
+
+        <!-- Random Lunch Menu Section -->
+        <section>
+            <h2>🍴 오늘의 점심 메뉴 추천</h2>
+            <div class="lunch-box">
+                <div class="lunch-display">
+                    <div class="lunch-name" id="lunchName">❓ 무엇을 먹을까요?</div>
+                    <div class="lunch-desc" id="lunchDesc">아래 버튼을 눌러 점심 메뉴를 렌덤으로 뽑아보세요!</div>
+                </div>
+                <button class="btn-action" onclick="recommendLunch()">
+                    <span>🎲 점심 메뉴 추천받기</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Mini Game Section -->
+        <section>
+            <h2>⚡ 10초 광클 미니게임</h2>
+            <div class="game-box">
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">남은 시간</span>
+                        <span class="stat-value" id="timer">10.0초</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">클릭 횟수</span>
+                        <span class="stat-value" id="score">0회</span>
+                    </div>
+                </div>
+                <button class="btn-clicker" id="clickBtn" onclick="handleClick()">
+                    <span id="clickBtnText">눌러서 시작!</span>
+                </button>
+                <div>
+                    <button class="btn-reset" onclick="resetGame()">🔄 다시 도전하기</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 유숭이(Yusung-i)의 바닷속 아지트 | All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Core Logic -->
+    <script>
+        /* 1. Ocean Animation Setup (Bubbles & Fish) */
+        function initOcean() {
+            const ocean = document.getElementById('oceanBg');
+            
+            // Create Bubbles
+            for (let i = 0; i < 20; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const size = Math.random() * 30 + 10;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.animationDuration = `${Math.random() * 8 + 6}s`;
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                ocean.appendChild(bubble);
+            }
+
+            // Create Swimming Fish Emojis
+            const fishEmojis = ['🐠', '🐟', '🐡', '🦈', '🐙', '🦑', '🦭'];
+            for (let i = 0; i < 6; i++) {
+                const fish = document.createElement('div');
+                fish.className = 'fish';
+                fish.innerText = fishEmojis[i % fishEmojis.length];
+                fish.style.top = `${Math.random() * 80 + 10}%`;
+                fish.style.animationDuration = `${Math.random() * 12 + 12}s`;
+                fish.style.animationDelay = `${Math.random() * 10}s`;
+                ocean.appendChild(fish);
+            }
+        }
+
+        /* 2. Card Flip Logic */
+        function flipCard(cardContainer) {
+            const card = cardContainer.querySelector('.card');
+            card.classList.toggle('flipped');
+        }
+
+        /* 3. OX Quiz Logic */
+        function checkQuiz(userAnswer) {
+            const feedback = document.getElementById('quizFeedback');
+            if (userAnswer === 'X') {
+                feedback.style.color = '#38ef7d';
+                feedback.innerText = '🎉 정답입니다! 유숭이는 홍균쌤을 엄청 좋아한다구요! 💙';
+                
+                // Fire Confetti Effect
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 80,
+                        spread: 70,
+                        origin: { y: 0.6 }
+                    });
+                }
+            } else {
+                feedback.style.color = '#ff4b2b';
+                feedback.innerText = '😭 땡! 거짓말이에요! 유숭이는 홍균쌤 최고 팬입니다!';
+            }
+        }
+
+        /* 4. Lunch Recommendation System (12 Menus) */
+        const lunchMenuList = [
+            { name: "🍕 바삭 촉촉 피자", desc: "고소한 치즈가 쫙쫙 늘어나는 인생 피자!" },
+            { name: "🍔 둠칫 두둠칫 수제버거", desc: "육즙 가득한 패티와 신선한 야채의 환상 조합!" },
+            { name: "🍜 얼큰한 해물 라면", desc: "바닷속 유숭이도 울고 갈 깊은 국물의 맛!" },
+            { name: "🍱 연어 덮밥 (사케동)", desc: "부드러운 연어와 와사비의 깔끔한 한 숟가락!" },
+            { name: "떡볶이 & 튀김 🍤", desc: "매콤달콤 떡볶이에 바삭한 모듬 튀김 푹 찍어 먹기!" },
+            { name: "🥩 겉바속촉 돈가스", desc: "바삭바삭한 튀김옷 속 도톰하고 부드러운 고기!" },
+            { name: "🍝 고소한 크림 파스타", desc: "꾸덕하고 부드러운 크림 소스 풍미 뿜뿜!" },
+            { name: "🍲 따뜻한 국밥 한 그릇", desc: "속이 뜨끈뜨끈해지는 든든한 한국인의 밥상!" },
+            { name: "🥟 겉바속촉 군만두 & 쫄면", desc: "새콤달콤한 쫄면과 만두의 영혼의 단짝 콤보!" },
+            { name: "🍛 치킨 가라아게 카레", desc: "진한 카레 위에 바삭한 치킨이 올라간 별미!" },
+            { name: "🌮 매콤 타코 & 퀘사디아", desc: "멕시칸 풍미가 가득 터지는 이색 점심!" },
+            { name: "🥪 에그 클럽 샌드위치", desc: "신선하고 가볍지만 알차고 폭신한 샌드위치!" }
+        ];
+
+        function recommendLunch() {
+            const nameEl = document.getElementById('lunchName');
+            const descEl = document.getElementById('lunchDesc');
+            
+            // Fast Slot Machine Animation Effect
+            let count = 0;
+            const interval = setInterval(() => {
+                const randomTemp = lunchMenuList[Math.floor(Math.random() * lunchMenuList.length)];
+                nameEl.innerText = randomTemp.name;
+                descEl.innerText = "메뉴 결정 중...";
+                count++;
+                
+                if (count > 10) {
+                    clearInterval(interval);
+                    const finalChoice = lunchMenuList[Math.floor(Math.random() * lunchMenuList.length)];
+                    nameEl.innerText = finalChoice.name;
+                    descEl.innerText = finalChoice.desc;
+                }
+            }, 50);
+        }
+
+        /* 5. 10-Second Clicker Mini Game Logic */
+        let gameTime = 10.0;
+        let score = 0;
+        let isPlaying = false;
+        let gameTimerId = null;
+
+        const timerEl = document.getElementById('timer');
+        const scoreEl = document.getElementById('score');
+        const clickBtn = document.getElementById('clickBtn');
+        const clickBtnText = document.getElementById('clickBtnText');
+
+        function handleClick() {
+            if (!isPlaying && gameTime === 10.0) {
+                // Start Game
+                isPlaying = true;
+                score = 1;
+                scoreEl.innerText = `${score}회`;
+                clickBtnText.innerText = '광클하기!! 💥';
+                
+                let startTime = Date.now();
+                gameTimerId = setInterval(() => {
+                    let elapsed = (Date.now() - startTime) / 1000;
+                    let remaining = (10.0 - elapsed).toFixed(1);
+
+                    if (remaining <= 0) {
+                        finishGame();
+                    } else {
+                        timerEl.innerText = `${remaining}초`;
+                    }
+                }, 100);
+
+            } else if (isPlaying) {
+                score++;
+                scoreEl.innerText = `${score}회`;
+            }
+        }
+
+        function finishGame() {
+            isPlaying = false;
+            clearInterval(gameTimerId);
+            timerEl.innerText = '0.0초';
+            clickBtn.disabled = true;
+            
+            let evaluation = "";
+            if (score >= 80) evaluation = "🔥 신의 손가락! 광클 마스터!";
+            else if (score >= 50) evaluation = "⚡ 엄청난 손가락 스피드!";
+            else if (score >= 30) evaluation = "👍 참 잘했어요!";
+            else evaluation = "🐢 조금 더 연습해 볼까요?";
+
+            clickBtnText.innerText = `게임 종료!`;
+            alert(`🎉 10초 동안 총 ${score}번 눌렀습니다!\n${evaluation}`);
+        }
+
+        function resetGame() {
+            clearInterval(gameTimerId);
+            isPlaying = false;
+            gameTime = 10.0;
+            score = 0;
+            timerEl.innerText = '10.0초';
+            scoreEl.innerText = '0회';
+            clickBtn.disabled = false;
+            clickBtnText.innerText = '눌러서 시작!';
+        }
+
+        /* Initialize Page on Load */
+        window.onload = function() {
+            initOcean();
+        };
+    </script>
+</body></html>
